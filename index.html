@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AF-Barber — Coiffeur & Barbier, Chêne-Bourg</title>
+<meta name="description" content="AF-Barber, coiffeur et barbier à Chêne-Bourg (Genève). Coupe, dégradé, rasage traditionnel. Note 4.9 sur 86 avis. Sans rendez-vous compliqué.">
+<meta name="theme-color" content="#b8272c">
+<meta property="og:title" content="AF-Barber — Coiffeur & Barbier, Chêne-Bourg">
+<meta property="og:description" content="Coupe, dégradé et rasage traditionnel au cœur de Chêne-Bourg. Note 4.9 sur 86 avis.">
+<meta property="og:type" content="business.business">
+<!-- DEPLOY STEP: og:image and og:url need absolute URLs, patch both at deploy time -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='4' y='2' width='6' height='4' rx='1' fill='%236b7169'/%3E%3Crect x='4' y='26' width='6' height='4' rx='1' fill='%236b7169'/%3E%3Crect x='3' y='6' width='8' height='20' rx='4' fill='%23fff' stroke='%23c7cbc3'/%3E%3Cpath d='M3 8l8 6-8 6z' fill='%23b8272c'/%3E%3Cpath d='M3 14l8 6' stroke='%231b1d1c' stroke-width='2' fill='none'/%3E%3C/svg%3E">
+<style>
+  :root {
+    --paper: #f1ece0;
+    --paper-raised: #f9f2e2;
+    --paper-sunken: #e7dfcd;
+    --ink: #201b14;
+    --ink-soft: #5a5245;
+    --steel: #7a715f;
+    --steel-line: #d3c8ae;
+    --red: #b8272c;
+    --red-deep: #8f1c20;
+    --red-ink: #fffdf8;
+    --amber: #a3701c;
+    --teal: #1f7a72;
+    --plum: #7c3f68;
+    --gold: #9c7a2e;
+    --focus: #1b4b8f;
+    --shadow: 0 1px 0 rgba(32,27,20,0.08);
+    --shadow-lg: 0 16px 34px rgba(32,27,20,0.18);
+    --ease: cubic-bezier(.22,.61,.36,1);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #1c1712;
+      --paper-raised: #26201a;
+      --paper-sunken: #14100c;
+      --ink: #f3ecdd;
+      --ink-soft: #c7bda9;
+      --steel: #948a76;
+      --steel-line: #3f382c;
+      --red: #dd4c47;
+      --red-deep: #b23330;
+      --red-ink: #1c1712;
+      --amber: #d9a13f;
+      --teal: #3fa89d;
+      --plum: #b5789f;
+      --gold: #d8b467;
+      --focus: #6ea1f2;
+      --shadow: 0 1px 0 rgba(0,0,0,0.5);
+      --shadow-lg: 0 20px 40px rgba(0,0,0,0.6);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #1c1712; --paper-raised: #26201a; --paper-sunken: #14100c;
+    --ink: #f3ecdd; --ink-soft: #c7bda9; --steel: #948a76; --steel-line: #3f382c;
+    --red: #dd4c47; --red-deep: #b23330; --red-ink: #1c1712;
+    --amber: #d9a13f; --teal: #3fa89d; --plum: #b5789f; --gold: #d8b467;
+    --focus: #6ea1f2; --shadow: 0 1px 0 rgba(0,0,0,0.5); --shadow-lg: 0 20px 40px rgba(0,0,0,0.6);
+  }
+  :root[data-theme="light"] {
+    --paper: #f1ece0; --paper-raised: #f9f2e2; --paper-sunken: #e7dfcd;
+    --ink: #201b14; --ink-soft: #5a5245; --steel: #7a715f; --steel-line: #d3c8ae;
+    --red: #b8272c; --red-deep: #8f1c20; --red-ink: #fffdf8;
+    --amber: #a3701c; --teal: #1f7a72; --plum: #7c3f68; --gold: #9c7a2e;
+    --focus: #1b4b8f; --shadow: 0 1px 0 rgba(32,27,20,0.08); --shadow-lg: 0 16px 34px rgba(32,27,20,0.18);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; overflow-x: clip; }
+  body { overflow-x: clip; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  html, body { margin: 0; padding: 0; }
+
+  body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    color: var(--ink);
+    background-color: var(--paper);
+    background-image:
+      repeating-linear-gradient(115deg,
+        color-mix(in srgb, var(--red) 5%, transparent) 0px,
+        color-mix(in srgb, var(--red) 5%, transparent) 2px,
+        transparent 2px,
+        transparent 34px),
+      repeating-linear-gradient(115deg,
+        color-mix(in srgb, var(--ink) 4%, transparent) 34px,
+        color-mix(in srgb, var(--ink) 4%, transparent) 36px,
+        transparent 36px,
+        transparent 68px);
+    background-attachment: fixed;
+  }
+
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+  }
+
+  .skip-link {
+    position: absolute; left: 12px; top: -60px;
+    background: var(--red); color: var(--red-ink);
+    padding: 10px 16px; border-radius: 3px; font-weight: 700; text-decoration: none;
+    z-index: 50; transition: top 0.2s var(--ease);
+  }
+  .skip-link:focus { top: 12px; }
+
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; font-variant-numeric: tabular-nums; }
+
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
+  .reveal.is-visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+  section[id] { scroll-margin-top: 96px; }
+  @media (max-width: 700px) { section[id] { scroll-margin-top: 128px; } }
+
+  /* ---------- Ticket-strip divider (signature motif) ---------- */
+  .perf {
+    position: relative;
+    height: 20px;
+    background: var(--ink);
+  }
+  .perf::before {
+    content: "";
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle, var(--paper) 5px, transparent 5.5px);
+    background-size: 26px 26px;
+    background-position: 0 -3px;
+  }
+  :root[data-theme="dark"] .perf, @media (prefers-color-scheme: dark) { }
+
+  /* ---------- Topbar / quicknav ---------- */
+  .topbar {
+    position: sticky; top: 0; z-index: 30;
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 2px solid var(--ink);
+  }
+  .topbar-inner {
+    max-width: 860px; margin: 0 auto; padding: 0 24px;
+    display: flex; align-items: center; justify-content: space-between; gap: 18px;
+    min-height: 52px;
+  }
+  .quicknav {
+    position: relative;
+    display: flex; align-items: center; gap: 2px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .quicknav::-webkit-scrollbar { display: none; }
+  .quicknav a {
+    position: relative;
+    padding: 8px 12px;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink-soft);
+    white-space: nowrap;
+    transition: color 0.25s var(--ease);
+    border-radius: 3px;
+  }
+  .quicknav a:hover { color: var(--ink); }
+  .quicknav a.active { color: var(--red); }
+  .nav-indicator {
+    position: absolute;
+    bottom: 2px; left: 0;
+    height: 2px;
+    background: var(--red);
+    border-radius: 2px;
+    transition: transform 0.35s var(--ease), width 0.35s var(--ease);
+    width: 0;
+  }
+  .topbar-status {
+    display: flex; align-items: center; gap: 14px;
+    font-size: 12.5px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--steel);
+    flex: none;
+  }
+  .status { display: inline-flex; align-items: center; gap: 7px; }
+  .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--steel); }
+  .status.is-closed .status-dot {
+    background: var(--red);
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--red) 60%, transparent);
+    animation: pulse-dot 2.2s var(--ease) infinite;
+  }
+  @keyframes pulse-dot {
+    0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--red) 45%, transparent); }
+    70% { box-shadow: 0 0 0 7px color-mix(in srgb, var(--red) 0%, transparent); }
+    100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--red) 0%, transparent); }
+  }
+  @media (prefers-reduced-motion: reduce) { .status.is-closed .status-dot { animation: none; } }
+  .topbar-status a.tel-mini { color: var(--ink); font-weight: 700; text-decoration: none; }
+  @media (max-width: 700px) {
+    .topbar-inner { flex-wrap: wrap; padding-top: 10px; padding-bottom: 8px; gap: 6px; }
+    .topbar-status span:first-child { display: none; }
+  }
+
+  /* ---------- Hero (poster) ---------- */
+  .hero {
+    position: relative;
+    padding: 64px 0 56px;
+    overflow: hidden;
+    background-image:
+      linear-gradient(100deg, color-mix(in srgb, var(--paper) 88%, transparent) 0%, color-mix(in srgb, var(--paper) 55%, transparent) 55%, color-mix(in srgb, var(--paper) 88%, transparent) 100%),
+      url("images/hero.png");
+    background-size: cover;
+    background-position: center 35%;
+  }
+  .hero-grid { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 30px; align-items: center; }
+  .eyebrow { font-size: 12.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--red); font-weight: 700; margin: 0 0 10px; }
+  h1.nameplate {
+    margin: 0 0 6px; font-weight: 800; text-transform: uppercase; letter-spacing: -0.015em;
+    font-size: clamp(3rem, 10vw, 5.6rem); line-height: 0.86;
+    transform: scaleX(0.86); transform-origin: left center; text-wrap: balance;
+    position: relative;
+  }
+  h1.nameplate .amp { color: var(--red); }
+  h1.nameplate .ghost {
+    position: absolute; left: 4px; top: 4px; z-index: -1;
+    color: transparent; -webkit-text-stroke: 1.5px color-mix(in srgb, var(--ink) 18%, transparent);
+    pointer-events: none;
+  }
+  .tagline { font-size: clamp(1.05rem, 2.2vw, 1.2rem); color: var(--ink-soft); max-width: 44ch; margin: 10px 0 24px; }
+
+  .rating-badge {
+    display: inline-flex; align-items: baseline; gap: 8px;
+    padding: 9px 14px; background: var(--paper-raised); border: 1.5px solid var(--ink);
+    border-radius: 3px; box-shadow: var(--shadow);
+    transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+  }
+  .rating-badge:hover { transform: translateY(-2px) rotate(-1deg); box-shadow: var(--shadow-lg); }
+  .rating-badge .stars { color: var(--gold); letter-spacing: 1px; }
+  .rating-badge .score { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-weight: 700; font-size: 1rem; }
+  .rating-badge .count { font-size: 0.85rem; color: var(--steel); }
+
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 22px; border-radius: 3px;
+    font-size: 14px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase;
+    text-decoration: none; border: 1.5px solid transparent; cursor: pointer;
+    transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), background-position 0.4s var(--ease);
+  }
+  @media (pointer: coarse) {
+    .btn { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+  }
+  .btn-primary {
+    background-image: linear-gradient(100deg, var(--red) 0%, var(--red-deep) 55%, var(--red) 100%);
+    background-size: 220% 100%; background-position: 0% 0;
+    color: var(--red-ink); box-shadow: var(--shadow-lg); border-color: var(--ink);
+  }
+  .btn-primary:hover { transform: translateY(-2px); background-position: 100% 0; }
+  .btn-primary:active { transform: translateY(0); }
+  .btn-secondary { background: transparent; color: var(--ink); border-color: var(--ink); }
+  .btn-secondary:hover { transform: translateY(-2px); background: var(--paper-raised); }
+
+  /* ---------- Signature: rotating seal badge ---------- */
+  .seal-wrap { position: relative; width: 190px; height: 190px; justify-self: end; flex: none; color: var(--ink); }
+  .seal-ring { width: 100%; height: 100%; animation: seal-spin 40s linear infinite; }
+  @keyframes seal-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .seal-ring { animation: none; } }
+  .seal-center {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  }
+  .seal-center svg { width: 56px; height: 56px; color: var(--red); }
+  @media (max-width: 620px) {
+    .hero-grid { grid-template-columns: 1fr; justify-items: start; }
+    .seal-wrap { width: 128px; height: 128px; justify-self: start; margin-top: 10px; }
+    .seal-center svg { width: 38px; height: 38px; }
+  }
+
+  /* ---------- Section scaffolding ---------- */
+  section { padding: 58px 0; }
+  .bg-sunken { background: var(--paper-sunken); }
+  .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 28px; }
+  .section-num {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 44px; font-weight: 700;
+    color: transparent; -webkit-text-stroke: 1.5px var(--steel-line); line-height: 1;
+  }
+  h2 { font-size: 1.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em; margin: 0; text-wrap: balance; }
+  p { max-width: 62ch; }
+  .lede { color: var(--ink-soft); }
+
+  .icon { width: 22px; height: 22px; flex: none; transition: transform 0.25s var(--ease); }
+  .icon svg { width: 100%; height: 100%; }
+  .icon.c-red { color: var(--red); }
+  .icon.c-amber { color: var(--amber); }
+  .icon.c-teal { color: var(--teal); }
+
+  /* ---------- Services: menu board ---------- */
+  .menu-board { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; column-gap: 40px; }
+  .menu-board li {
+    display: flex; align-items: center; gap: 14px; padding: 18px 4px;
+    border-bottom: 1px dashed var(--steel-line);
+    transition: transform 0.25s var(--ease);
+  }
+  .menu-board li:hover { transform: translateX(4px); }
+  .menu-board li:hover .icon { transform: scale(1.15) rotate(-6deg); }
+  .menu-board .name { font-weight: 700; font-size: 1.05rem; }
+  .menu-board .duration { font-weight: 400; font-size: 0.8rem; color: var(--steel); margin-left: 6px; white-space: nowrap; }
+  .menu-board .leader { flex: 1; border-bottom: 1px dotted var(--steel-line); height: 0; transform: translateY(-6px); }
+  .menu-board .price {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-weight: 700; font-size: 1.15rem;
+    font-variant-numeric: tabular-nums; white-space: nowrap; transition: color 0.25s var(--ease);
+  }
+  .menu-board li:hover .price { color: var(--red); }
+  .ticket-note { margin-top: 18px; font-size: 12.5px; color: var(--steel); }
+  @media (max-width: 700px) { .menu-board { grid-template-columns: 1fr; } }
+
+  /* ---------- Process: punch card ---------- */
+  .punch-row {
+    position: relative;
+    display: flex; justify-content: space-between; align-items: flex-start;
+    gap: 8px; padding-top: 8px;
+  }
+  .punch-row::before {
+    content: "";
+    position: absolute; top: 60px; left: 60px; right: 60px; height: 0;
+    border-top: 2px dashed var(--steel-line); z-index: 0;
+  }
+  .punch { flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; position: relative; z-index: 1; }
+  .stamp {
+    width: 108px; height: 108px; border-radius: 50%; flex: none;
+    border: 2.5px solid var(--stamp-color, var(--red)); background: var(--paper-raised);
+    display: flex; align-items: center; justify-content: center;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-weight: 700; font-size: 26px;
+    color: var(--stamp-color, var(--red));
+    transform: rotate(var(--tilt, 0deg));
+    transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    box-shadow: var(--shadow);
+  }
+  .punch:hover .stamp { transform: rotate(0deg) scale(1.06); box-shadow: var(--shadow-lg); }
+  .punch:nth-child(1) .stamp { --stamp-color: var(--red); --tilt: -4deg; }
+  .punch:nth-child(2) .stamp { --stamp-color: var(--amber); --tilt: 3deg; }
+  .punch:nth-child(3) .stamp { --stamp-color: var(--teal); --tilt: -3deg; }
+  .punch:nth-child(4) .stamp { --stamp-color: var(--plum); --tilt: 4deg; }
+  .punch h3 { margin: 0; font-size: 1rem; font-weight: 700; }
+  .punch p { margin: 0; font-size: 13px; color: var(--ink-soft); max-width: 20ch; }
+  @media (max-width: 700px) {
+    .punch-row { flex-direction: column; align-items: stretch; gap: 28px; }
+    .punch-row::before { display: none; }
+    .punch { flex-direction: row; text-align: left; }
+    .punch p { max-width: none; }
+  }
+
+  /* ---------- Styles: masonry lookbook ---------- */
+  .lookbook { columns: 4 160px; column-gap: 14px; }
+  .look-tile {
+    break-inside: avoid; margin-bottom: 14px; width: 100%; display: block;
+    border-radius: 4px; border: 1.5px solid var(--ink); background: var(--paper-raised);
+    display: flex; flex-direction: column; justify-content: flex-end; padding: 12px;
+    position: relative; overflow: hidden; cursor: default;
+    transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  }
+  .look-tile:nth-child(1) { aspect-ratio: 3/4; }
+  .look-tile:nth-child(2) { aspect-ratio: 1/1; }
+  .look-tile:nth-child(3) { aspect-ratio: 4/5; }
+  .look-tile:nth-child(4) { aspect-ratio: 3/4; }
+  .look-tile:hover { transform: translateY(-5px) rotate(-0.6deg); box-shadow: var(--shadow-lg); }
+  .look-tile .swatch { position: absolute; inset: -12%; opacity: 0.9; transition: transform 0.5s var(--ease); }
+  .look-tile:hover .swatch { transform: scale(1.08) rotate(1deg); }
+  .look-tile .label {
+    position: relative; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em;
+    background: color-mix(in srgb, var(--paper-raised) 82%, transparent); padding: 6px 8px; border-radius: 2px;
+    align-self: flex-start; transition: background 0.25s var(--ease);
+  }
+  .look-tile:hover .label { background: var(--tile-color); color: var(--red-ink); }
+  .swatch.s1 { background: center/cover url("images/look-skinfade.png"); }
+  .swatch.s2 { background: center/cover url("images/look-taper.png"); }
+  .swatch.s3 { background: center/cover url("images/look-beard.png"); }
+  .swatch.s4 { background: center/cover url("images/look-sidepart.png"); }
+  .look-tile:nth-child(1) { --tile-color: var(--ink); }
+  .look-tile:nth-child(2) { --tile-color: var(--teal); }
+  .look-tile:nth-child(3) { --tile-color: var(--red); }
+  .look-tile:nth-child(4) { --tile-color: var(--amber); }
+  @media (max-width: 700px) { .lookbook { columns: 2 140px; } }
+
+  /* ---------- Reviews: medallion ---------- */
+  .reviews-panel {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 32px;
+    padding: 10px 0;
+  }
+  .reviews-score {
+    text-align: center; flex: none;
+    width: 168px; height: 168px; border-radius: 50%;
+    border: 3px solid var(--ink); background: var(--paper-raised);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    transform: rotate(-4deg); box-shadow: var(--shadow-lg);
+  }
+  .reviews-score .big { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 2.6rem; font-weight: 700; line-height: 1; }
+  .reviews-score .stars { color: var(--gold); font-size: 1rem; letter-spacing: 2px; display: block; margin-top: 4px; }
+  .reviews-score .count { font-size: 11.5px; color: var(--steel); margin-top: 4px; text-transform: uppercase; letter-spacing: .04em; }
+  .reviews-copy { flex: 1; min-width: 220px; }
+  .reviews-copy p { margin: 0 0 14px; color: var(--ink-soft); font-size: 1.05rem; }
+  .link-out {
+    font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em;
+    text-decoration: underline; text-underline-offset: 3px; transition: color 0.25s var(--ease);
+  }
+  .link-out:hover { color: var(--red); }
+
+  /* ---------- Location: ticket stub ---------- */
+  .stub {
+    display: grid; grid-template-columns: 1fr 1px 1fr;
+    background: var(--paper-raised); border: 1.5px solid var(--ink); border-radius: 4px;
+    box-shadow: var(--shadow-lg); overflow: hidden;
+  }
+  .stub-panel { padding: 26px 26px; display: flex; flex-direction: column; gap: 18px; }
+  .stub-divider { position: relative; background: transparent; }
+  .stub-divider::before {
+    content: ""; position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(to bottom, var(--steel-line) 0 8px, transparent 8px 16px);
+    width: 1.5px; margin: 0 auto;
+  }
+  .stub-divider::after {
+    content: "";
+    position: absolute; left: 50%; top: 0; width: 26px; height: 26px;
+    background: var(--paper); border-radius: 50%; transform: translate(-50%, -50%);
+    box-shadow: 0 154px 0 0 var(--paper);
+  }
+  .stub .label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--steel); margin-bottom: 6px; }
+  .stub .value { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 15px; line-height: 1.7; }
+  .register { width: 100%; border-collapse: collapse; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 13.5px; }
+  .register td { padding: 7px 0; border-bottom: 1px dashed var(--steel-line); transition: color 0.2s var(--ease); }
+  .register td:first-child { color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.04em; font-size: 12px; }
+  .register td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+  .register tr:hover td { color: var(--ink); }
+  .register tr.today td { color: var(--ink); font-weight: 700; }
+  .register tr.today td:first-child { color: var(--red); }
+  .register tr.closed td:last-child { color: var(--steel); }
+  .salon-photo { border-radius: 3px; overflow: hidden; border: 1px solid var(--steel-line); margin-bottom: 14px; }
+  .salon-photo img { width: 100%; height: 150px; object-fit: cover; display: block; }
+  .map-embed { border-radius: 3px; overflow: hidden; border: 1px solid var(--steel-line); min-height: 200px; }
+  .map-embed iframe { width: 100%; height: 100%; min-height: 200px; border: 0; display: block; filter: grayscale(0.2) sepia(0.08); }
+  @media (max-width: 700px) {
+    .stub { grid-template-columns: 1fr; }
+    .stub-divider { display: none; }
+  }
+
+  /* ---------- Booking band ---------- */
+  .booking-band {
+    background-image: linear-gradient(120deg, var(--red) 0%, var(--red-deep) 60%, var(--plum) 130%);
+    color: var(--red-ink); padding: 52px 0; text-align: center;
+  }
+  .booking-band h2 { color: var(--red-ink); }
+  .booking-band p { color: color-mix(in srgb, var(--red-ink) 85%, transparent); margin: 8px auto 22px; }
+  .booking-band .btn-primary { background-image: none; background: var(--red-ink); color: var(--red); border-color: var(--red-ink); }
+  .booking-band .btn-primary:hover { transform: translateY(-2px); }
+  .booking-band .btn-secondary { border-color: color-mix(in srgb, var(--red-ink) 55%, transparent); color: var(--red-ink); }
+
+  /* ---------- Footer ---------- */
+  footer { padding: 26px 0 90px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 12.5px; color: var(--steel); }
+
+  /* ---------- Sticky mobile call bar ---------- */
+  .mobile-call {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; display: none;
+    padding: 10px 14px; background: color-mix(in srgb, var(--paper) 94%, transparent);
+    backdrop-filter: blur(8px); border-top: 1px solid var(--steel-line);
+  }
+  .mobile-call a {
+    display: block; text-align: center; padding: 13px; border-radius: 3px;
+    background: var(--red); color: var(--red-ink); font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.03em; text-decoration: none; font-size: 14px;
+  }
+  @media (max-width: 620px) { .mobile-call { display: block; } footer { padding-bottom: 100px; } }
+
+  /* ---------- Back to top ---------- */
+  .to-top {
+    position: fixed; right: 22px; bottom: 22px; z-index: 25;
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--paper-raised); border: 1.5px solid var(--ink); color: var(--ink);
+    display: flex; align-items: center; justify-content: center; cursor: pointer;
+    box-shadow: var(--shadow-lg);
+    opacity: 0; transform: translateY(10px) scale(0.9); pointer-events: none;
+    transition: opacity 0.3s var(--ease), transform 0.3s var(--ease), border-color 0.25s var(--ease);
+  }
+  .to-top.visible { opacity: 1; transform: none; pointer-events: auto; }
+  .to-top:hover { border-color: var(--red); color: var(--red); }
+  .to-top svg { width: 18px; height: 18px; }
+  @media (max-width: 620px) { .to-top { bottom: 78px; } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <nav class="quicknav" aria-label="Navigation rapide">
+      <a href="#services">Prestations</a>
+      <a href="#process">Déroulé</a>
+      <a href="#styles">Styles</a>
+      <a href="#avis">Avis</a>
+      <a href="#horaires">Horaires</a>
+      <span class="nav-indicator" aria-hidden="true"></span>
+    </nav>
+    <div class="topbar-status">
+      <span class="status is-closed"><span class="status-dot"></span>Fermé — réouvre lundi 9h</span>
+      <a class="tel-mini" href="tel:+41223034030">022 303 40 30</a>
+    </div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Coiffeur &amp; Barbier · Chêne-Bourg</p>
+      <h1 class="nameplate">
+        <span class="ghost" aria-hidden="true">AF-BARBER</span>
+        AF<span class="amp">-</span>BARBER
+      </h1>
+      <p class="tagline">Coupe, dégradé et rasage traditionnel au cœur de Chêne-Bourg. Sans rendez-vous compliqué, sans attente inutile.</p>
+
+      <div class="rating-badge">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <span class="score">4.9</span>
+        <span class="count">— 86 avis Google</span>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="tel:+41223034030">Appeler — 022 303 40 30</a>
+        <a class="btn btn-secondary" href="https://www.google.com/maps/dir/?api=1&destination=Rue+Fran%C3%A7ois-Jacquier+18,+1225+Ch%C3%AAne-Bourg" target="_blank" rel="noopener">Itinéraire</a>
+      </div>
+    </div>
+
+    <div class="seal-wrap" role="img" aria-label="Sceau AF-Barber, Chêne-Bourg">
+      <svg class="seal-ring" viewBox="0 0 200 200">
+        <defs>
+          <path id="arcTop" d="M24,100 A76,76 0 0 1 176,100" />
+          <path id="arcBottom" d="M176,100 A76,76 0 0 1 24,100" />
+        </defs>
+        <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="1" opacity=".35"/>
+        <circle cx="100" cy="100" r="60" fill="none" stroke="currentColor" stroke-width="1" opacity=".35"/>
+        <text font-size="12.5" letter-spacing="2.5" font-weight="700" fill="currentColor">
+          <textPath href="#arcTop" startOffset="50%" text-anchor="middle">AF-BARBER</textPath>
+        </text>
+        <text font-size="12.5" letter-spacing="2.5" font-weight="700" fill="currentColor">
+          <textPath href="#arcBottom" startOffset="50%" text-anchor="middle">CHÊNE-BOURG</textPath>
+        </text>
+      </svg>
+      <span class="seal-center" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="6" cy="6" r="2.4"/><circle cx="6" cy="18" r="2.4"/><line x1="7.8" y1="7.3" x2="20" y2="18"/><line x1="7.8" y1="16.7" x2="20" y2="6"/></svg>
+      </span>
+    </div>
+  </div>
+</header>
+
+<div class="perf" aria-hidden="true"></div>
+
+<main id="main" tabindex="-1">
+
+<section id="services" class="wrap reveal" aria-labelledby="services-h">
+  <div class="section-head">
+    <h2 id="services-h">Prestations</h2>
+    <span class="section-num">01</span>
+  </div>
+  <p class="lede">Coupes classiques et dégradés modernes, taillés à la main pour chaque forme de visage.</p>
+
+  <ul class="menu-board">
+    <li><span class="icon c-red" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="6" cy="6" r="2.4"/><circle cx="6" cy="18" r="2.4"/><line x1="7.8" y1="7.3" x2="20" y2="18"/><line x1="7.8" y1="16.7" x2="20" y2="6"/></svg></span><span class="name">Coupe + barbe<span class="duration">30 min</span></span><span class="leader"></span><span class="price">30 CHF</span></li>
+    <li><span class="icon c-red" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="6" cy="6" r="2.4"/><circle cx="6" cy="18" r="2.4"/><line x1="7.8" y1="7.3" x2="20" y2="18"/><line x1="7.8" y1="16.7" x2="20" y2="6"/></svg></span><span class="name">Coupe<span class="duration">25 min</span></span><span class="leader"></span><span class="price">25 CHF</span></li>
+    <li><span class="icon c-teal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="3"/><line x1="5" y1="7" x2="5" y2="18"/><line x1="9" y1="7" x2="9" y2="15"/><line x1="13" y1="7" x2="13" y2="18"/><line x1="17" y1="7" x2="17" y2="15"/></svg></span><span class="name">Coupe enfant – étudiant<span class="duration">20 min</span></span><span class="leader"></span><span class="price">20 CHF</span></li>
+    <li><span class="icon c-amber" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="10.5" width="14" height="3" rx="1"/><line x1="17" y1="12" x2="21" y2="12"/></svg></span><span class="name">Barbe<span class="duration">15 min</span></span><span class="leader"></span><span class="price">15 CHF</span></li>
+    <li><span class="icon c-amber" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="10.5" width="14" height="3" rx="1"/><line x1="17" y1="12" x2="21" y2="12"/></svg></span><span class="name">Contours<span class="duration">45 min</span></span><span class="leader"></span><span class="price">15 CHF</span></li>
+  </ul>
+  <p class="ticket-note">Tarifs et durées tels qu'affichés sur la réservation en ligne du salon.</p>
+</section>
+
+<div class="perf" aria-hidden="true"></div>
+
+<section id="process" class="wrap reveal bg-sunken" aria-labelledby="process-h">
+  <div class="section-head">
+    <h2 id="process-h">Le déroulé</h2>
+    <span class="section-num">02</span>
+  </div>
+  <div class="punch-row">
+    <div class="punch"><div class="stamp">01</div><h3>Accueil</h3><p>On vous installe, café si vous voulez.</p></div>
+    <div class="punch"><div class="stamp">02</div><h3>Diagnostic</h3><p>Repousse, forme du visage, ce qui a changé.</p></div>
+    <div class="punch"><div class="stamp">03</div><h3>Coupe</h3><p>Ciseaux, tondeuse ou rasoir, selon vous.</p></div>
+    <div class="punch"><div class="stamp">04</div><h3>Finition</h3><p>Contours nets, conseils d'entretien.</p></div>
+  </div>
+</section>
+
+<section id="styles" class="wrap reveal" aria-labelledby="styles-h">
+  <div class="section-head">
+    <h2 id="styles-h">Styles</h2>
+    <span class="section-num">03</span>
+  </div>
+  <p class="lede">Un aperçu des coupes les plus demandées au salon.</p>
+  <div class="lookbook">
+    <div class="look-tile"><span class="swatch s1"></span><span class="label">Skin fade</span></div>
+    <div class="look-tile"><span class="swatch s2"></span><span class="label">Taper classique</span></div>
+    <div class="look-tile"><span class="swatch s3"></span><span class="label">Barbe sculptée</span></div>
+    <div class="look-tile"><span class="swatch s4"></span><span class="label">Side part</span></div>
+  </div>
+</section>
+
+<div class="perf" aria-hidden="true"></div>
+
+<section id="avis" class="wrap reveal bg-sunken" aria-labelledby="reviews-h">
+  <div class="section-head">
+    <h2 id="reviews-h">Avis</h2>
+    <span class="section-num">04</span>
+  </div>
+  <div class="reviews-panel">
+    <div class="reviews-score">
+      <span class="big mono" data-count-to="4.9">0.0</span>
+      <span class="stars" aria-hidden="true">★★★★★</span>
+      <span class="count">86 avis</span>
+    </div>
+    <div class="reviews-copy">
+      <p>Note moyenne construite sur la régularité : coupes précises, accueil sans chichi, pas de mauvaise surprise sur le prix.</p>
+      <a class="link-out" href="https://www.google.com/maps/search/?api=1&query=AF-Barber+Ch%C3%AAne-Bourg" target="_blank" rel="noopener">Lire les avis sur Google →</a>
+    </div>
+  </div>
+</section>
+
+<section id="horaires" class="wrap reveal" aria-labelledby="loc-h">
+  <div class="section-head">
+    <h2 id="loc-h">Horaires &amp; adresse</h2>
+    <span class="section-num">05</span>
+  </div>
+
+  <div class="stub">
+    <div class="stub-panel">
+      <div>
+        <div class="label">Salon</div>
+        <div class="value">Rue François-Jacquier 18<br>1225 Chêne-Bourg<br>Suisse</div>
+      </div>
+      <div>
+        <div class="label">Email</div>
+        <div class="value"><a class="link-out" href="mailto:info@afbarber.ch">info@afbarber.ch</a></div>
+      </div>
+      <table class="register">
+        <tbody>
+          <tr class="today closed"><td>Dimanche</td><td>Fermé</td></tr>
+          <tr><td>Lundi</td><td>9h–19h</td></tr>
+          <tr><td>Mardi</td><td>9h–19h</td></tr>
+          <tr><td>Mercredi</td><td>9h–19h</td></tr>
+          <tr><td>Jeudi</td><td>9h–19h</td></tr>
+          <tr><td>Vendredi</td><td>9h–19h</td></tr>
+          <tr><td>Samedi</td><td>9h–19h</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="stub-divider" aria-hidden="true"></div>
+    <div class="stub-panel">
+      <div class="salon-photo">
+        <img src="images/salon.png" alt="Intérieur du salon AF-Barber" loading="lazy" width="640" height="480">
+      </div>
+      <div class="map-embed">
+        <iframe title="Carte — AF-Barber, Chêne-Bourg" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Rue+Fran%C3%A7ois-Jacquier+18,+1225+Ch%C3%AAne-Bourg,+Switzerland&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="perf" aria-hidden="true"></div>
+
+<div class="booking-band reveal">
+  <div class="wrap">
+    <h2>Réservez votre créneau</h2>
+    <p>Sur rendez-vous ou en passant — selon l'affluence.</p>
+    <div class="cta-row" style="justify-content:center;">
+      <a class="btn btn-primary" href="tel:+41223034030">Appeler — 022 303 40 30</a>
+      <a class="btn btn-secondary" href="mailto:info@afbarber.ch">Écrire — info@afbarber.ch</a>
+      <a class="btn btn-secondary" href="https://www.google.com/maps/dir/?api=1&destination=Rue+Fran%C3%A7ois-Jacquier+18,+1225+Ch%C3%AAne-Bourg" target="_blank" rel="noopener">Itinéraire</a>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer class="wrap">
+  <span>AF-Barber — Chêne-Bourg</span>
+  <span>Rue François-Jacquier 18, 1225 Chêne-Bourg</span>
+  <span><a href="mailto:info@afbarber.ch">info@afbarber.ch</a></span>
+</footer>
+
+<div class="mobile-call"><a href="tel:+41223034030">Appeler le salon</a></div>
+
+<button class="to-top" id="toTop" aria-label="Remonter en haut de page">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<script>
+  (function () {
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var reveals = document.querySelectorAll('.reveal');
+    if (prefersReduced || !('IntersectionObserver' in window)) {
+      reveals.forEach(function (el) { el.classList.add('is-visible'); });
+    } else {
+      var revealIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { entry.target.classList.add('is-visible'); revealIO.unobserve(entry.target); }
+        });
+      }, { threshold: 0.12 });
+      reveals.forEach(function (el) { revealIO.observe(el); });
+    }
+
+    var indicator = document.querySelector('.nav-indicator');
+    var links = Array.prototype.slice.call(document.querySelectorAll('.quicknav a'));
+    var sections = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+
+    function moveIndicator(link) {
+      if (!link || !indicator) return;
+      indicator.style.width = link.offsetWidth + 'px';
+      indicator.style.transform = 'translateX(' + link.offsetLeft + 'px)';
+    }
+    function setActive(link) {
+      links.forEach(function (a) { a.classList.toggle('active', a === link); });
+      moveIndicator(link);
+    }
+
+    if (links.length) {
+      setActive(links[0]);
+      links.forEach(function (a) { a.addEventListener('click', function () { setActive(a); }); });
+      window.addEventListener('resize', function () {
+        var current = document.querySelector('.quicknav a.active');
+        if (current) moveIndicator(current);
+      });
+      if ('IntersectionObserver' in window) {
+        var navIO = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              var idx = sections.indexOf(entry.target);
+              if (idx > -1) setActive(links[idx]);
+            }
+          });
+        }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+        sections.forEach(function (s) { if (s) navIO.observe(s); });
+      }
+    }
+
+    var counter = document.querySelector('[data-count-to]');
+    if (counter) {
+      var target = parseFloat(counter.getAttribute('data-count-to'));
+      var animateCount = function () {
+        if (prefersReduced) { counter.textContent = target.toFixed(1); return; }
+        var start = null, duration = 900;
+        function step(ts) {
+          if (!start) start = ts;
+          var p = Math.min((ts - start) / duration, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          counter.textContent = (target * eased).toFixed(1);
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      };
+      if ('IntersectionObserver' in window) {
+        var countIO = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) { animateCount(); countIO.unobserve(entry.target); }
+          });
+        }, { threshold: 0.6 });
+        countIO.observe(counter);
+      } else { animateCount(); }
+    }
+
+    var toTop = document.getElementById('toTop');
+    if (toTop) {
+      window.addEventListener('scroll', function () {
+        toTop.classList.toggle('visible', window.scrollY > 700);
+      }, { passive: true });
+      toTop.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
+      });
+    }
+
+    matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', function (e) {
+      if (e.matches) { reveals.forEach(function (el) { el.classList.add('is-visible'); }); }
+    });
+  })();
+</script>
+</body>
+</html>
